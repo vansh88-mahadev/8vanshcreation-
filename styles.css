@@ -1,90 +1,129 @@
+/* Fonts */
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #1a1a1a, #000);
-  color: #f8f5e6;
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at top left, #0d0d0d, #000);
+  color: #f5f5f5;
+  overflow-x: hidden;
 }
 
+/* Header */
 header {
   text-align: center;
-  padding: 2rem;
-  background: linear-gradient(45deg, #d4af37, #b8860b);
-  color: black;
+  padding: 3rem 1rem;
+  background: linear-gradient(135deg, #000, #111, #1a1a1a);
+  border-bottom: 2px solid #d4af37;
 }
-
-h1 {
-  font-size: 2.5rem;
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
   margin: 0;
-  font-weight: bold;
+  color: #d4af37;
+  text-shadow: 0 0 15px rgba(212,175,55,0.7);
 }
-
-.tagline {
-  font-size: 1rem;
+header .tagline {
+  font-size: 1.2rem;
+  color: #ccc;
   margin-top: 0.5rem;
 }
 
+/* Main sections */
 main {
-  max-width: 900px;
+  max-width: 950px;
   margin: auto;
+  padding: 2rem 1rem;
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  color: #d4af37;
+  margin-bottom: 1rem;
+}
+
+/* Form */
+.form-section {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(212,175,55,0.4);
+  border-radius: 16px;
   padding: 2rem;
-}
-
-.form-section, .poems-section {
-  background: rgba(255, 215, 0, 0.05);
-  border: 1px solid #d4af37;
-  border-radius: 12px;
-  padding: 1.5rem;
   margin-bottom: 2rem;
-  box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+  animation: fadeIn 1s ease-in;
 }
-
 input, textarea {
   width: 100%;
-  margin: 0.5rem 0;
-  padding: 0.8rem;
-  border: 1px solid #d4af37;
-  border-radius: 8px;
-  background: #111;
-  color: #f8f5e6;
-}
-
-button {
-  background: #d4af37;
-  color: black;
-  font-weight: bold;
-  padding: 0.8rem 1.5rem;
+  margin: 0.8rem 0;
+  padding: 1rem;
   border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.2s ease;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
 }
-
+textarea {
+  min-height: 120px;
+}
+button {
+  background: linear-gradient(45deg, #d4af37, #ffd700);
+  color: #000;
+  font-weight: 600;
+  border: none;
+  padding: 0.9rem 1.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
 button:hover {
   transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(212,175,55,0.7);
 }
 
+/* Poems */
+.poems-section {
+  animation: fadeIn 1s ease-in 0.3s both;
+}
 #poemsList .poem {
-  background: #111;
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(8px);
   border-left: 4px solid #d4af37;
-  padding: 1rem;
+  padding: 1rem 1.5rem;
   margin: 1rem 0;
-  border-radius: 6px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+  transition: transform 0.3s;
 }
-
+#poemsList .poem:hover {
+  transform: translateY(-4px);
+}
+#poemsList .poem p {
+  margin: 0.5rem 0;
+}
 #poemsList .poem .author {
-  color: #d4af37;
   font-weight: bold;
+  color: #d4af37;
+  text-align: right;
 }
 
+/* Footer */
 footer {
   text-align: center;
-  padding: 1.5rem;
+  padding: 2rem 1rem;
   background: #0a0a0a;
   color: #aaa;
   border-top: 1px solid #333;
 }
-
 footer a {
   color: #d4af37;
   text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
 }
