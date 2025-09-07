@@ -1,288 +1,38 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>8vansh creation — Poems</title>
-  <style>
-    :root{
-      --bg1:#0f0f10;
-      --bg2:#1b1a1f;
-      --gold:#f2b705;
-      --muted: #cfc9c2;
-      --card:#0f1113;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-      background: radial-gradient(1200px 600px at 10% 10%, rgba(242,183,5,0.06), transparent 6%),
-                  linear-gradient(180deg,var(--bg1),var(--bg2));
-      color:#eee;
-      min-height:100vh;
-      padding:28px 18px;
-      display:flex;
-      align-items:flex-start;
-      justify-content:center;
-    }
-    .container{width:100%;max-width:980px}
-
-    header{display:flex;align-items:center;gap:16px;margin-bottom:18px}
-    .logo{width:82px;height:82px;border-radius:12px;overflow:hidden;flex-shrink:0;background:#000;display:flex;align-items:center;justify-content:center;border:2px solid rgba(242,183,5,0.12)}
-    .brand{font-weight:700;font-size:22px;color:var(--gold);letter-spacing:0.4px}
-    .sub{color:var(--muted);font-size:13px}
-    .topbar{display:flex;gap:12px;margin-left:auto;align-items:center}
-    .chip{background:rgba(255,255,255,0.03);padding:8px 12px;border-radius:999px;font-size:13px;border:1px solid rgba(255,255,255,0.03)}
-    .chip a{color:var(--gold);text-decoration:none}
-
-    main{margin-top:18px;display:grid;grid-template-columns:1fr 380px;gap:18px}
-
-    .panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 6px 24px rgba(0,0,0,0.5)}
-
-    .create{display:flex;flex-direction:column;gap:10px}
-    input[type=text], textarea{background:transparent;border:1px dashed rgba(255,255,255,0.06);
-      padding:12px;border-radius:10px;color:#fff;font-size:15px;outline:none}
-    textarea{min-height:120px;resize:vertical}
-    .actions{display:flex;gap:8px;align-items:center}
-    .btn{background:linear-gradient(180deg,var(--gold),#d49b03);color:#111;padding:10px 14px;border-radius:10px;border:none;cursor:pointer;font-weight:700}
-    .btn.secondary{background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,0.04)}
-
-    .feed{margin-top:16px;display:flex;flex-direction:column;gap:12px}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      padding:14px;border-radius:12px;position:relative;border:1px solid rgba(255,255,255,0.02)}
-    .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px}
-    .meta .who{font-size:13px;color:var(--muted)}
-    .poem{white-space:pre-wrap;font-size:16px;line-height:1.5;color:#fff}
-    .card .controls{position:absolute;right:12px;bottom:12px;display:flex;gap:8px}
-    .icon-btn{background:rgba(0,0,0,0.35);border:1px solid rgba(255,255,255,0.03);padding:8px;border-radius:8px;color:var(--muted);cursor:pointer}
-
-    aside{position:sticky;top:24px}
-    .panel .title{font-weight:700;color:var(--gold);margin-bottom:8px}
-    .info{font-size:14px;color:var(--muted);line-height:1.5}
-    footer{margin-top:18px;color:var(--muted);font-size:13px;text-align:center}
-
-    @media (max-width:900px){main{grid-template-columns:1fr} aside{position:static}}
-
-    /* Hero */
-    .hero{text-align:center;padding:80px 20px;background:linear-gradient(135deg, var(--bg1), var(--bg2));
-      border-radius:16px;margin-bottom:40px;color:#eee}
-    .hero h1{font-size:32px;margin-bottom:10px}
-    .hero p{font-size:18px;opacity:0.8}
-    .hero .btn{display:inline-block;margin-top:20px;padding:12px 24px;background:var(--gold);color:#000;
-      border-radius:8px;text-decoration:none;transition:0.3s}
-    .hero .btn:hover{background:#ffd95a}
-
-    /* Poem Section */
-    .poem-section{text-align:center;margin:40px 0}
-    .poem-section h2{font-size:24px;margin-bottom:20px;color:var(--gold)}
-    .poem-cards{display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
-    .poem-card{background:var(--card);padding:20px;border-radius:12px;width:260px;
-      box-shadow:0 4px 12px rgba(0,0,0,0.2);transition:transform 0.3s, background 0.3s}
-    .poem-card:hover{transform:translateY(-6px);background:rgba(255,255,255,0.05)}
-    .poem-card h3{color:var(--gold);margin-bottom:10px}
-    .poem-card p{font-size:14px;color:#ccc}
-  </style>
-
-  <!-- Google tag (fixed outside style) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E28Z2798DN"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-E28Z2798DN');
-  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>8vanshcreation — Poems</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="firebase.js"></script>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="logo"><img src="logom.png" alt="logo" style="width:100%;height:100%;object-fit:cover;display:block"></div>
-      <div>
-        <div class="brand">8vanshcreation</div>
-        <div class="sub">Poems • Feelings • Share</div>
-      </div>
-      <div class="topbar">
-        <div class="chip">@8vanshcreation</div>
-        <div class="chip"><a href="mailto:vansh72081@gmail.com">vansh72081@gmail.com</a></div>
-        <div class="chip" id="ownerToggleWrap" style="display:none">Owner: <strong id="ownerLabel" style="margin-left:8px;color:var(--gold)"></strong></div>
-      </div>
-    </header>
+  <header>
+    <h1>✒️ 8vanshcreation</h1>
+    <p class="tagline">Share Your Feelings Through Poems</p>
+  </header>
 
-    <!-- Hero -->
-    <section class="hero">
-      <h1>Welcome to Poem World 🌸</h1>
-      <p>Read, Share & Create Beautiful Poems</p>
-      <a href="#poems" class="btn">Explore Poems</a>
+  <main>
+    <section class="form-section">
+      <h2>Add Your Poem</h2>
+      <form id="poemForm">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <textarea id="poem" placeholder="Write your poem here..." required></textarea>
+        <button type="submit">Submit Poem</button>
+      </form>
     </section>
 
-    <!-- Poems Section -->
-    <section id="poems" class="poem-section">
-      <h2>Latest Poems</h2>
-      <div class="poem-cards">
-        <div class="poem-card"><h3>🌿 Nature</h3><p>A gentle breeze whispers untold stories...</p></div>
-        <div class="poem-card"><h3>🌙 Night</h3><p>Stars shine brighter when hearts are heavy...</p></div>
-        <div class="poem-card"><h3>❤️ Love</h3><p>Every heartbeat writes a hidden poem...</p></div>
-      </div>
+    <section class="poems-section">
+      <h2>Shared Poems</h2>
+      <div id="poemsList"></div>
     </section>
+  </main>
 
-    <main>
-      <section>
-        <div class="panel">
-          <div class="create">
-            <input id="nameInput" type="text" placeholder="Your name (only visible to owner)" />
-            <textarea id="poemInput" placeholder="Write your poem... (max 1000 chars)"></textarea>
-            <div class="actions">
-              <button class="btn" id="addBtn">Share Poem</button>
-              <button class="btn secondary" id="setAdminBtn">Set Owner Password</button>
-              <button class="btn secondary" id="toggleAdminBtn">Toggle Owner Mode</button>
-            </div>
-            <small style="color:var(--muted)">Tip: Click <strong>Set Owner Password</strong> once and remember it. Owner mode shows names & delete buttons.</small>
-          </div>
-          <div class="feed" id="feed"></div>
-        </div>
-      </section>
-
-      <aside>
-        <div class="panel">
-          <div class="title">About</div>
-          <div class="info">
-            <strong>8vansh creation</strong> — Share short poems, feelings and lines. <br><br>
-            Insta: <a href="https://instagram.com/8vanshcreation" target="_blank" style="color:var(--gold)">@8vanshcreation</a><br>
-            Email: <a href="mailto:vansh72081@gmail.com" style="color:var(--gold)">vansh72081@gmail.com</a>
-          </div>
-          <hr style="margin:12px 0;border:none;border-top:1px solid rgba(255,255,255,0.03)">
-          <div class="title">Owner Controls</div>
-          <div class="info">
-            - Owner mode reveals the names and shows Delete buttons.<br>
-            - Names are saved but hidden from public view.
-          </div>
-        </div>
-      </aside>
-    </main>
-
-    <footer>Built with ❤ — 8vansh creation</footer>
-  </div>
-
-  <!-- Firebase + App Logic -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
-    import { getFirestore, collection, addDoc, getDocs, query, orderBy, serverTimestamp, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-firestore.js";
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyA0-iMDJHX0vwpXi1lUT65QgcBQ4oMfe3I",
-      authDomain: "vanshcreation-poem.firebaseapp.com",
-      projectId: "vanshcreation-poem",
-      storageBucket: "vanshcreation-poem.appspot.com",
-      messagingSenderId: "1031323420580",
-      appId: "1:1031323420580:web:8cd2e955c8d571308ba331",
-      measurementId: "G-E28Z2798DN"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-
-    const nameInput = document.getElementById('nameInput');
-    const poemInput = document.getElementById('poemInput');
-    const addBtn = document.getElementById('addBtn');
-    const feed = document.getElementById('feed');
-    const setAdminBtn = document.getElementById('setAdminBtn');
-    const toggleAdminBtn = document.getElementById('toggleAdminBtn');
-    const ownerToggleWrap = document.getElementById('ownerToggleWrap');
-    const ownerLabel = document.getElementById('ownerLabel');
-
-    function isOwnerMode(){return localStorage.getItem('ownerMode') === 'true';}
-    function getOwnerName(){return localStorage.getItem('ownerName') || 'You';}
-
-    function showOwnerUI(){
-      if(isOwnerMode()){
-        ownerToggleWrap.style.display='inline-block';
-        ownerLabel.textContent=getOwnerName();
-        document.querySelectorAll('.hidden-name').forEach(el=>el.style.display='block');
-        document.querySelectorAll('.delete-btn').forEach(b=>b.style.display='inline-block');
-      } else {
-        ownerToggleWrap.style.display='none';
-        document.querySelectorAll('.hidden-name').forEach(el=>el.style.display='none');
-        document.querySelectorAll('.delete-btn').forEach(b=>b.style.display='none');
-      }
-    }
-
-    setAdminBtn.addEventListener('click', ()=>{
-      const pass = prompt('Set an owner password (saved only in your browser)');
-      if(!pass) return alert('Password not set');
-      const disp = prompt('Enter owner display name (example: Vansh)');
-      localStorage.setItem('ownerPass', pass);
-      if(disp) localStorage.setItem('ownerName', disp);
-      alert('Owner password saved locally.');
-    });
-
-    toggleAdminBtn.addEventListener('click', ()=>{
-      const saved = localStorage.getItem('ownerPass');
-      if(!saved) return alert('No owner password set.');
-      const entry = prompt('Enter owner password:');
-      if(entry === saved){
-        const next = !isOwnerMode();
-        localStorage.setItem('ownerMode', next ? 'true' : 'false');
-        showOwnerUI();
-        alert('Owner Mode: ' + (next ? 'Enabled' : 'Disabled'));
-      } else alert('Wrong password');
-    });
-
-    addBtn.addEventListener('click', async ()=>{
-      const name = (nameInput.value || '').trim();
-      const poem = (poemInput.value || '').trim();
-      if(!poem) return alert('Write a poem first');
-      if(poem.length > 1000) return alert('Poem too long');
-
-      await addDoc(collection(db,'poems'), { name, poem, createdAt: serverTimestamp() });
-      poemInput.value=''; nameInput.value='';
-      await loadFeed();
-    });
-
-    async function loadFeed(){
-      feed.innerHTML='';
-      const q = query(collection(db,'poems'), orderBy('createdAt','desc'));
-      const snap = await getDocs(q);
-      snap.forEach(docSnap=>{
-        const data = docSnap.data();
-        const id = docSnap.id;
-
-        const card = document.createElement('div'); card.className='card';
-        const meta = document.createElement('div'); meta.className='meta';
-
-        let when = "";
-        if(data.createdAt && data.createdAt.toDate){
-          when = data.createdAt.toDate().toLocaleString();
-        }
-        const who = document.createElement('div'); who.className='who'; who.textContent = when;
-        meta.appendChild(who);
-
-        const p = document.createElement('div'); p.className='poem'; p.textContent = data.poem;
-        const nameEl = document.createElement('p'); nameEl.className='hidden-name'; nameEl.textContent = data.name ? ('- ' + data.name) : '';
-
-        const controls = document.createElement('div'); controls.className='controls';
-        const copyBtn = document.createElement('button'); copyBtn.className='icon-btn'; copyBtn.title='Copy poem'; copyBtn.innerHTML='📋';
-        copyBtn.onclick = ()=>{navigator.clipboard.writeText(data.poem); alert('Poem copied!')};
-        controls.appendChild(copyBtn);
-
-        const delBtn = document.createElement('button'); delBtn.className='icon-btn delete-btn'; delBtn.title='Delete poem'; delBtn.style.display='none'; delBtn.innerHTML='🗑️';
-        delBtn.onclick = async ()=>{
-          if(!isOwnerMode()) return alert('Only owner can delete');
-          if(!confirm('Delete this poem?')) return;
-          await deleteDoc(doc(db,'poems',id));
-          await loadFeed();
-        };
-        controls.appendChild(delBtn);
-
-        card.appendChild(meta);
-        card.appendChild(p);
-        card.appendChild(nameEl);
-        card.appendChild(controls);
-        feed.appendChild(card);
-      });
-      showOwnerUI();
-    }
-
-    loadFeed();
-  </script>
+  <footer>
+    <p>📧 Contact: <a href="mailto:vansh72081@gmail.com">vansh72081@gmail.com</a></p>
+    <p>📸 Instagram: <a href="https://instagram.com/8vanshcreation" target="_blank">@8vanshcreation</a></p>
+    <p>© 2025 8vanshcreation. All rights reserved.</p>
+  </footer>
 </body>
-  </html>
+</html>
