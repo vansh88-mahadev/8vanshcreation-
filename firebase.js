@@ -2,7 +2,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
 import { getFirestore, collection, addDoc, getDocs, serverTimestamp, query, orderBy } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
 
-// Your Firebase config (already replaced with your values)
+// Vansh's Firebase config
 const firebaseConfig = {
   apiKey: "AIzaSyBHLqtAlx9khE_UPcXbvhFM3tWZPmb_d4c",
   authDomain: "vanshcreation-poems.firebaseapp.com",
