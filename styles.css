@@ -1,0 +1,90 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #1a1a1a, #000);
+  color: #f8f5e6;
+}
+
+header {
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(45deg, #d4af37, #b8860b);
+  color: black;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin: 0;
+  font-weight: bold;
+}
+
+.tagline {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+main {
+  max-width: 900px;
+  margin: auto;
+  padding: 2rem;
+}
+
+.form-section, .poems-section {
+  background: rgba(255, 215, 0, 0.05);
+  border: 1px solid #d4af37;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+input, textarea {
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.8rem;
+  border: 1px solid #d4af37;
+  border-radius: 8px;
+  background: #111;
+  color: #f8f5e6;
+}
+
+button {
+  background: #d4af37;
+  color: black;
+  font-weight: bold;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+#poemsList .poem {
+  background: #111;
+  border-left: 4px solid #d4af37;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 6px;
+}
+
+#poemsList .poem .author {
+  color: #d4af37;
+  font-weight: bold;
+}
+
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: #0a0a0a;
+  color: #aaa;
+  border-top: 1px solid #333;
+}
+
+footer a {
+  color: #d4af37;
+  text-decoration: none;
+}
