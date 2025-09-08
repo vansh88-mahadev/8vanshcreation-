@@ -1,83 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>8vanshcreation — Poems & Thoughts</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>✨ 8vanshcreation ✨</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- Header -->
   <header>
-    <img src="logom.png" alt="Logo" class="logo" />
+    <img src="logom.png" alt="Logo" class="logo">
     <h1>✨ 8vanshcreation ✨</h1>
-    <p>Share your Poems, Thoughts & Quotes with the world</p>
+    <p>Share your Poems, Thoughts & Quotes with the world 🌍</p>
+    <button id="loginBtn">🔑 Sign in with Google</button>
+    <button id="logoutBtn" style="display:none;">🚪 Logout</button>
+    <p id="userInfo"></p>
   </header>
 
-  <!-- Submission Form -->
-  <section class="form-section">
-    <h2>Share Your Creativity</h2>
-    <form id="poemForm">
-      <label for="type">Select Type:</label>
-      <select id="type" required>
-        <option value="Poem">Poem</option>
-        <option value="Thought">Thought</option>
-        <option value="Quote">Quote</option>
-      </select>
-
-      <label for="content">Your Words:</label>
-      <textarea id="content" placeholder="Write here..." required></textarea>
-
-      <label for="author">Your Name:</label>
-      <input type="text" id="author" placeholder="Anonymous" />
-
-      <button type="submit">✨ Share</button>
-    </form>
-  </section>
-
-  <!-- Search & Filter -->
-  <section class="filter-section">
-    <input type="text" id="searchInput" placeholder="Search by keyword or author..." />
-    <select id="filterType">
-      <option value="All">All</option>
-      <option value="Poem">Poems</option>
-      <option value="Thought">Thoughts</option>
-      <option value="Quote">Quotes</option>
+  <!-- Share Form -->
+  <section class="share-box">
+    <h2>✍️ Share Your Creativity</h2>
+    <select id="contentType">
+      <option value="Poem">Poem</option>
+      <option value="Thought">Thought</option>
+      <option value="Quote">Quote</option>
     </select>
+
+    <textarea id="contentText" placeholder="Write here..."></textarea>
+    <button id="shareBtn">✨ Share</button>
   </section>
 
-  <!-- Display Section -->
-  <section id="poemsContainer">
-    <h2>Community Creations</h2>
-    <div id="poemsList"></div>
+  <!-- Community Creations -->
+  <section>
+    <h2>🌟 Community Creations</h2>
+    <div id="creationsList" class="cards"></div>
   </section>
-
-  <!-- Mood Section -->
-  <section id="moodBoard">
-    <h2>Today's Mood Board</h2>
-    <div id="moodList"></div>
-  </section>
-
-  <!-- Floating Mood Button -->
-  <button id="moodBtn">😊</button>
-  <div id="moodPopup" class="hidden">
-    <h3>How are you feeling today?</h3>
-    <div class="emoji-options">
-      <span>😀</span>
-      <span>😍</span>
-      <span>😢</span>
-      <span>😡</span>
-      <span>😴</span>
-      <span>🤔</span>
-    </div>
-  </div>
 
   <!-- Footer -->
   <footer>
-    <p>© 2025 8vanshcreation | Follow on Instagram <a href="https://instagram.com/8vanshcreation" target="_blank">@8vanshcreation</a></p>
+    <p>© 2025 8vanshcreation | Follow on Instagram 
+      <a href="https://instagram.com/8vanshcreation">@8vanshcreation</a>
+    </p>
   </footer>
 
-  <!-- Firebase + App JS -->
-  <script type="module" src="app.js"></script>
+  <script type="module" src="firebase.js"></script>
 </body>
 </html>
