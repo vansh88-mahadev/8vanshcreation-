@@ -2,38 +2,82 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>8vanshcreation — Poems</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script type="module" src="firebase.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>8vanshcreation — Poems & Thoughts</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Header -->
   <header>
-    <h1>✒️ 8vanshcreation</h1>
-    <p class="tagline">Where Words Become Golden</p>
+    <img src="logom.png" alt="Logo" class="logo" />
+    <h1>✨ 8vanshcreation ✨</h1>
+    <p>Share your Poems, Thoughts & Quotes with the world</p>
   </header>
 
-  <main>
-    <section class="form-section">
-      <h2>Add Your Poem</h2>
-      <form id="poemForm">
-        <input type="text" id="name" placeholder="Your Name" required />
-        <textarea id="poem" placeholder="Write your poem here..." required></textarea>
-        <button type="submit">✨ Share Poem</button>
-      </form>
-    </section>
+  <!-- Submission Form -->
+  <section class="form-section">
+    <h2>Share Your Creativity</h2>
+    <form id="poemForm">
+      <label for="type">Select Type:</label>
+      <select id="type" required>
+        <option value="Poem">Poem</option>
+        <option value="Thought">Thought</option>
+        <option value="Quote">Quote</option>
+      </select>
 
-    <section class="poems-section">
-      <h2>Shared Poems</h2>
-      <div id="poemsList"></div>
-    </section>
-  </main>
+      <label for="content">Your Words:</label>
+      <textarea id="content" placeholder="Write here..." required></textarea>
 
+      <label for="author">Your Name:</label>
+      <input type="text" id="author" placeholder="Anonymous" />
+
+      <button type="submit">✨ Share</button>
+    </form>
+  </section>
+
+  <!-- Search & Filter -->
+  <section class="filter-section">
+    <input type="text" id="searchInput" placeholder="Search by keyword or author..." />
+    <select id="filterType">
+      <option value="All">All</option>
+      <option value="Poem">Poems</option>
+      <option value="Thought">Thoughts</option>
+      <option value="Quote">Quotes</option>
+    </select>
+  </section>
+
+  <!-- Display Section -->
+  <section id="poemsContainer">
+    <h2>Community Creations</h2>
+    <div id="poemsList"></div>
+  </section>
+
+  <!-- Mood Section -->
+  <section id="moodBoard">
+    <h2>Today's Mood Board</h2>
+    <div id="moodList"></div>
+  </section>
+
+  <!-- Floating Mood Button -->
+  <button id="moodBtn">😊</button>
+  <div id="moodPopup" class="hidden">
+    <h3>How are you feeling today?</h3>
+    <div class="emoji-options">
+      <span>😀</span>
+      <span>😍</span>
+      <span>😢</span>
+      <span>😡</span>
+      <span>😴</span>
+      <span>🤔</span>
+    </div>
+  </div>
+
+  <!-- Footer -->
   <footer>
-    <p>📧 <a href="mailto:vansh72081@gmail.com">vansh72081@gmail.com</a></p>
-    <p>📸 <a href="https://instagram.com/8vanshcreation" target="_blank">@8vanshcreation</a></p>
-    <p>© 2025 8vanshcreation. All rights reserved.</p>
+    <p>© 2025 8vanshcreation | Follow on Instagram <a href="https://instagram.com/8vanshcreation" target="_blank">@8vanshcreation</a></p>
   </footer>
+
+  <!-- Firebase + App JS -->
+  <script type="module" src="app.js"></script>
 </body>
 </html>
