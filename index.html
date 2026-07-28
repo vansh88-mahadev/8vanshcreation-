@@ -3,229 +3,175 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>8vanshcreation — Poems</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #111, #222);
-      color: #f9f9f9;
-    }
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 15px 30px;
-      background: #000;
-      border-bottom: 2px solid goldenrod;
-    }
-    header img {
-      height: 40px;
-    }
-    header h1 {
-      font-size: 1.5rem;
-      color: goldenrod;
-      margin: 0;
-    }
-    .auth-buttons button {
-      margin-left: 10px;
-      background: goldenrod;
-      border: none;
-      padding: 8px 14px;
-      border-radius: 6px;
-      cursor: pointer;
-      color: #111;
-      font-weight: bold;
-    }
-    main {
-      max-width: 800px;
-      margin: 30px auto;
-      padding: 20px;
-    }
-    textarea {
-      width: 100%;
-      height: 100px;
-      border-radius: 12px;
-      border: none;
-      padding: 12px;
-      font-size: 1rem;
-      margin-bottom: 10px;
-    }
-    button.share-btn {
-      background: goldenrod;
-      color: #111;
-      border: none;
-      border-radius: 8px;
-      padding: 10px 18px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    button.share-btn:hover {
-      background: #d4af37;
-    }
-    .poem-card {
-      background: #1a1a1a;
-      border: 1px solid goldenrod;
-      border-radius: 14px;
-      padding: 15px;
-      margin: 15px 0;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
-    }
-    .poem-card small {
-      color: #aaa;
-    }
-    .mood-board {
-      margin: 20px 0;
-      text-align: center;
-    }
-    .mood-board button {
-      font-size: 1.5rem;
-      margin: 5px;
-      background: #333;
-      color: goldenrod;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      cursor: pointer;
-    }
-    footer {
-      text-align: center;
-      padding: 15px;
-      background: #000;
-      border-top: 2px solid goldenrod;
-      font-size: 0.9rem;
-      margin-top: 40px;
-    }
-    footer a {
-      color: goldenrod;
-      text-decoration: none;
-    }
-  </style>
+  <title>ENTROPY | Science Redefined</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://kit.fontawesome.com/6c8c0e3d15.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
 
-  <header>
-    <div style="display:flex;align-items:center;gap:10px;">
-      <img src="logom.png" alt="Logo">
-      <h1>8vanshcreation</h1>
-    </div>
-    <div class="auth-buttons">
-      <span id="userName">Guest</span>
-      <button onclick="login()">Login</button>
-      <button onclick="logout()">Logout</button>
-    </div>
-  </header>
+<div id="particles"></div>
 
-  <main>
-    <h2>📝 Share your Poem or Thought</h2>
-    <textarea id="poemText" placeholder="Write something..."></textarea>
-    <br>
-    <button class="share-btn" onclick="submitPoem()">Share</button>
+<header>
 
-    <div class="mood-board">
-      <h3>✨ Your Mood Today</h3>
-      <button onclick="alert('Mood: Happy 😃')">😃</button>
-      <button onclick="alert('Mood: Sad 😢')">😢</button>
-      <button onclick="alert('Mood: Angry 😡')">😡</button>
-      <button onclick="alert('Mood: Thinking 🤔')">🤔</button>
-    </div>
+<nav>
 
-    <h2>🌟 Community Creations</h2>
-    <div id="poemsList"></div>
-  </main>
+<div class="logo">
 
-  <footer>
-    © 2025 8vanshcreation | Follow on 
-    <a href="https://instagram.com/8vanshcreation" target="_blank">@8vanshcreation</a>
-  </footer>
+<img src="logo.png" alt="Logo">
 
-  <!-- 🔥 Firebase -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-analytics.js";
-    import { getFirestore, collection, addDoc, getDocs, serverTimestamp, query, orderBy } 
-      from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
-    import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } 
-      from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+<div>
+<h2>ENTROPY</h2>
+<p>Science Redefined</p>
+</div>
 
-    const firebaseConfig = {
-      apiKey: "AIzaSyDI0OhakISAFMGlHC2d5USw2_KGWyBvFKA",
-      authDomain: "vanshcreation-f8234.firebaseapp.com",
-      projectId: "vanshcreation-f8234",
-      storageBucket: "vanshcreation-f8234.appspot.com",
-      messagingSenderId: "515290716847",
-      appId: "1:515290716847:web:1907c02b99a3630aa1125a",
-      measurementId: "G-JGM9P7GC61"
-    };
+</div>
 
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-    const db = getFirestore(app);
+<ul>
 
-    const auth = getAuth(app);
-    const provider = new GoogleAuthProvider();
+<li><a href="#home">Home</a></li>
 
-    // 🟢 Google Login
-    async function login() {
-      try {
-        const result = await signInWithPopup(auth, provider);
-        const user = result.user;
-        document.getElementById("userName").innerText = user.displayName;
-        alert("Welcome " + user.displayName);
-      } catch (err) {
-        console.error(err);
-        alert("Login failed: " + err.message);
-      }
-    }
+<li><a href="#subjects">Subjects</a></li>
 
-    // 🔴 Logout
-    async function logout() {
-      try {
-        await signOut(auth);
-        document.getElementById("userName").innerText = "Guest";
-        alert("Logged out");
-      } catch (err) {
-        console.error(err);
-      }
-    }
+<li><a href="#about">About</a></li>
 
-    // 📝 Submit poem/thought
-    async function submitPoem() {
-      const text = document.getElementById("poemText").value.trim();
-      if (!text) return alert("Please write something!");
-      try {
-        await addDoc(collection(db, "poems"), {
-          text: text,
-          author: auth.currentUser ? auth.currentUser.displayName : "Anonymous",
-          createdAt: serverTimestamp()
-        });
-        document.getElementById("poemText").value = "";
-        loadPoems();
-      } catch (err) {
-        console.error(err);
-      }
-    }
+<li><a href="#contact">Contact</a></li>
 
-    // 📖 Load poems
-    async function loadPoems() {
-      const poemsList = document.getElementById("poemsList");
-      poemsList.innerHTML = "";
-      const q = query(collection(db, "poems"), orderBy("createdAt", "desc"));
-      const snapshot = await getDocs(q);
-      snapshot.forEach(doc => {
-        const d = doc.data();
-        const div = document.createElement("div");
-        div.className = "poem-card";
-        div.innerHTML = `<p>${d.text}</p><small>— ${d.author || "Anonymous"}</small>`;
-        poemsList.appendChild(div);
-      });
-    }
+</ul>
 
-    window.login = login;
-    window.logout = logout;
-    window.submitPoem = submitPoem;
-    window.onload = loadPoems;
-  </script>
+</nav>
+
+</header>
+
+<section class="hero" id="home">
+
+<div class="hero-text">
+
+<h1>Explore The Future Of Science</h1>
+
+<p>
+
+Welcome to ENTROPY — a futuristic learning platform for Physics, Chemistry, Biology and Space Science.
+
+</p>
+
+<a href="#subjects" class="btn">Start Learning</a>
+
+</div>
+
+<div class="hero-image">
+
+<div class="atom">
+
+<div class="nucleus"></div>
+
+<span class="orbit one"></span>
+
+<span class="orbit two"></span>
+
+<span class="orbit three"></span>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="subjects">
+
+<h2 class="title">Explore Subjects</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<i class="fas fa-atom"></i>
+
+<h3>Physics</h3>
+
+<p>Understand energy, motion and the universe.</p>
+
+</div>
+
+<div class="card">
+
+<i class="fas fa-flask"></i>
+
+<h3>Chemistry</h3>
+
+<p>Atoms, molecules and reactions explained beautifully.</p>
+
+</div>
+
+<div class="card">
+
+<i class="fas fa-dna"></i>
+
+<h3>Biology</h3>
+
+<p>Explore life from cells to human body.</p>
+
+</div>
+
+<div class="card">
+
+<i class="fas fa-rocket"></i>
+
+<h3>Space</h3>
+
+<p>Discover galaxies, black holes and planets.</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="about">
+
+<h2 class="title">About</h2>
+
+<p class="about-text">
+
+ENTROPY is a premium futuristic educational platform built to make science beautiful and easy to understand.
+
+</p>
+
+</section>
+
+<footer id="contact">
+
+<img src="logo.png" class="footer-logo">
+
+<h3>Developed by 8vanshcreation</h3>
+
+<p>
+
+Instagram :
+@8vanshcreation
+
+<br><br>
+
+@orophile.vansh
+
+<br><br>
+
+Email :
+
+vansh72081@gmail.com
+
+</p>
+
+</footer>
+
+<script src="script.js"></script>
+
 </body>
 </html>
