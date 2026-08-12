@@ -3,53 +3,1239 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Physics | ENTROPY</title>
-<link rel="stylesheet" href="style.css">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial, sans-serif;
+  background:#050816;
+  color:#eef7ff;
+  line-height:1.6;
+}
+
+/* NAVBAR */
+nav{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  padding:15px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(5,8,22,.94);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid #173452;
+}
+
+.logo{
+  font-size:22px;
+  font-weight:bold;
+  color:#00e5ff;
+}
+
+nav a{
+  color:#d8edff;
+  text-decoration:none;
+  margin-left:18px;
+  font-size:14px;
+}
+
+nav a:hover{
+  color:#00e5ff;
+}
+
+/* HERO */
+.hero{
+  min-height:470px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:70px 20px;
+  background:
+  radial-gradient(circle at center,#12395b 0%,#071124 35%,#050816 70%);
+}
+
+.hero h1{
+  font-size:clamp(45px,9vw,85px);
+  margin-bottom:10px;
+  background:linear-gradient(90deg,#ffffff,#00e5ff,#a66cff);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.hero p{
+  max-width:700px;
+  margin:auto;
+  color:#a9bfd2;
+  font-size:18px;
+}
+
+.btn{
+  display:inline-block;
+  margin:20px 5px;
+  padding:12px 24px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:bold;
+  background:#00d4ff;
+  color:#03101a;
+  border:none;
+  cursor:pointer;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+}
+
+/* CONTAINER */
+.container{
+  width:92%;
+  max-width:1150px;
+  margin:auto;
+}
+
+section{
+  padding:55px 0;
+}
+
+.section-title{
+  font-size:32px;
+  margin-bottom:8px;
+}
+
+.subtitle{
+  color:#91a8bc;
+  margin-bottom:25px;
+}
+
+/* SEARCH */
+.search{
+  width:100%;
+  padding:16px;
+  border-radius:14px;
+  border:1px solid #24445f;
+  background:#091322;
+  color:white;
+  font-size:16px;
+  outline:none;
+}
+
+.search:focus{
+  border-color:#00e5ff;
+}
+
+/* CARDS */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:18px;
+}
+
+.card{
+  background:linear-gradient(145deg,#0b1628,#07101e);
+  border:1px solid #193753;
+  border-radius:18px;
+  padding:22px;
+  transition:.25s;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+  border-color:#00e5ff;
+  box-shadow:0 10px 30px rgba(0,229,255,.08);
+}
+
+.card h3{
+  color:#00e5ff;
+  margin-bottom:8px;
+}
+
+.card p{
+  color:#b5c7d8;
+}
+
+/* CHAPTER */
+.chapter{
+  cursor:pointer;
+}
+
+.chapter-content{
+  display:none;
+  margin-top:15px;
+  padding-top:15px;
+  border-top:1px solid #1c354b;
+  color:#bdccda;
+}
+
+.chapter.active .chapter-content{
+  display:block;
+}
+
+.tag{
+  display:inline-block;
+  background:#102b40;
+  color:#72eaff;
+  padding:4px 9px;
+  border-radius:12px;
+  font-size:12px;
+  margin:3px;
+}
+
+/* FORMULA */
+.formula{
+  background:#050b15;
+  border-left:4px solid #00e5ff;
+  padding:12px;
+  margin:10px 0;
+  border-radius:7px;
+  font-size:18px;
+  font-weight:bold;
+  color:#e8faff;
+}
+
+/* NOTES */
+.note{
+  background:#0a1424;
+  border:1px solid #1b3852;
+  border-radius:15px;
+  padding:20px;
+  margin-top:15px;
+}
+
+.note strong{
+  color:#00e5ff;
+}
+
+/* QUIZ */
+.question{
+  background:#091425;
+  border:1px solid #1b3852;
+  padding:20px;
+  border-radius:15px;
+  margin:15px 0;
+}
+
+.question label{
+  display:block;
+  padding:8px;
+  color:#c9d8e5;
+  cursor:pointer;
+}
+
+.question label:hover{
+  color:#00e5ff;
+}
+
+.result{
+  font-size:20px;
+  color:#00e5ff;
+  font-weight:bold;
+  margin-top:20px;
+}
+
+/* PROGRESS */
+.progress{
+  width:100%;
+  height:8px;
+  background:#172537;
+  border-radius:10px;
+  overflow:hidden;
+  margin:15px 0;
+}
+
+.progress-bar{
+  width:0%;
+  height:100%;
+  background:#00e5ff;
+  transition:.4s;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:40px 20px;
+  border-top:1px solid #18344c;
+  color:#7f96aa;
+}
+
+footer a{
+  color:#00e5ff;
+  text-decoration:none;
+}
+
+/* TOP BUTTON */
+.top{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  width:45px;
+  height:45px;
+  border:none;
+  border-radius:50%;
+  background:#00d4ff;
+  cursor:pointer;
+  font-size:20px;
+}
+
+/* MOBILE */
+@media(max-width:650px){
+
+  nav{
+    padding:14px;
+  }
+
+  nav div:last-child{
+    display:none;
+  }
+
+  .hero{
+    min-height:400px;
+  }
+
+  section{
+    padding:40px 0;
+  }
+
+  .section-title{
+    font-size:27px;
+  }
+}
+</style>
 </head>
-<body style="background:#050816;color:white;font-family:Arial,sans-serif;text-align:center;padding:60px;">
 
-<h1>⚛️ Physics Section</h1>
+<body>
 
-<h2>🚧 Coming Soon</h2>
+<!-- NAVBAR -->
+<nav>
 
-<p style="max-width:700px;margin:auto;font-size:18px;line-height:1.8;">
-The Physics section is currently under development.
-We are working hard to create simple, high-quality, and easy-to-understand science content for everyone.
-</p>
+<div class="logo">⚛️ ENTROPY</div>
 
-<p style="margin-top:30px;font-size:18px;">
-💡 <b>Have any suggestions?</b><br>
-We'd love to hear your ideas and feedback.
-</p>
+<div>
+<a href="#chapters">Chapters</a>
+<a href="#formulas">Formulas</a>
+<a href="#quiz">Quiz</a>
+<a href="index.html">Home</a>
+</div>
 
-<h3>📩 Contact Us</h3>
+</nav>
 
-<p>
-Instagram 1:
-<a href="https://instagram.com/8vanshcreation" target="_blank" style="color:#00e5ff;">
-@8vanshcreation
-</a>
-</p>
 
-<p>
-Instagram 2:
-<a href="https://instagram.com/orophile.vansh" target="_blank" style="color:#00e5ff;">
-@orophile.vansh
-</a>
-</p>
+<!-- HERO -->
+<header class="hero">
+
+<div>
+
+<h1>PHYSICS</h1>
 
 <p>
-📧 Email:
-<a href="mailto:vansh72081@gmail.com" style="color:#00e5ff;">
-vansh72081@gmail.com
-</a>
+Understand Physics with simple explanations,
+important formulas, examples and quick tests.
 </p>
+
+<a href="#chapters" class="btn">
+Start Learning ↓
+</a>
+
+<a href="#quiz" class="btn">
+Take Quiz
+</a>
+
+</div>
+
+</header>
+
+
+<main class="container">
+
+
+<!-- SEARCH -->
+<section>
+
+<h2 class="section-title">
+🔎 Physics Search
+</h2>
+
+<p class="subtitle">
+Search for a chapter or topic.
+</p>
+
+<input
+type="text"
+id="search"
+class="search"
+placeholder="Search Physics...">
+
+</section>
+
+
+<!-- CHAPTERS -->
+<section id="chapters">
+
+<h2 class="section-title">
+📚 Physics Chapters
+</h2>
+
+<p class="subtitle">
+Tap any chapter to open its notes.
+</p>
+
+
+<div class="grid" id="chapterGrid">
+
+
+<!-- 1 -->
+<div class="card chapter" data-search="units measurement si units">
+
+<h3>01. Units & Measurement</h3>
+
+<span class="tag">Basics</span>
+<span class="tag">SI Units</span>
+
+<div class="chapter-content">
+
+<p>
+Measurement is the comparison of an unknown physical quantity
+with a known standard quantity.
+</p>
+
+<div class="formula">
+SI Unit of Length = metre (m)
+</div>
+
+<div class="formula">
+SI Unit of Mass = kilogram (kg)
+</div>
+
+<div class="formula">
+SI Unit of Time = second (s)
+</div>
+
+<p>
+Other important SI units include ampere, kelvin, mole and candela.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- 2 -->
+<div class="card chapter" data-search="motion distance displacement speed velocity acceleration">
+
+<h3>02. Motion</h3>
+
+<span class="tag">Kinematics</span>
+<span class="tag">Important</span>
+
+<div class="chapter-content">
+
+<p>
+Motion means a change in position of an object with time.
+</p>
+
+<p>
+<b>Distance:</b> Total path travelled.
+</p>
+
+<p>
+<b>Displacement:</b> Shortest distance from initial to final position,
+with direction.
+</p>
+
+<div class="formula">
+Speed = Distance / Time
+</div>
+
+<div class="formula">
+Velocity = Displacement / Time
+</div>
+
+<div class="formula">
+a = (v − u) / t
+</div>
+
+<div class="formula">
+v = u + at
+</div>
+
+<div class="formula">
+s = ut + ½at²
+</div>
+
+<div class="formula">
+v² = u² + 2as
+</div>
+
+</div>
+
+</div>
+
+
+<!-- 3 -->
+<div class="card chapter" data-search="force newton laws inertia momentum">
+
+<h3>03. Force & Laws of Motion</h3>
+
+<span class="tag">Newton</span>
+<span class="tag">Force</span>
+
+<div class="chapter-content">
+
+<p>
+Force is a push or pull that can change the state of motion
+of an object.
+</p>
+
+<p>
+Newton's First Law explains inertia.
+</p>
+
+<p>
+Newton's Second Law connects force, mass and acceleration.
+</p>
+
+<p>
+Newton's Third Law states that forces occur in action-reaction pairs.
+</p>
+
+<div class="formula">
+F = ma
+</div>
+
+<div class="formula">
+Momentum = mv
+</div>
+
+</div>
+
+</div>
+
+
+<!-- 4 -->
+<div class="card chapter" data-search="gravitation gravity mass weight free fall">
+
+<h3>04. Gravitation</h3>
+
+<span class="tag">Gravity</span>
+<span class="tag">Free Fall</span>
+
+<div class="chapter-content">
+
+<p>
+Every object attracts every other object due to gravitational force.
+</p>
+
+<p>
+Near Earth's surface, acceleration due to gravity is approximately
+9.8 m/s².
+</p>
+
+<div class="formula">
+Weight = mg
+</div>
+
+<p>
+Mass remains the same at different places, while weight can change
+with gravitational field strength.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- 5 -->
+<div class="card chapter" data-search="work energy power kinetic potential">
+
+<h3>05. Work, Energy & Power</h3>
+
+<span class="tag">Energy</span>
+<span class="tag">Numericals</span>
+
+<div class="chapter-content">
+
+<p>
+Work is done when a force causes displacement.
+</p>
+
+<div class="formula">
+W = Fd cosθ
+</div>
+
+<div class="formula">
+KE = ½mv²
+</div>
+
+<div class="formula">
+PE = mgh
+</div>
+
+<div class="formula">
+Power = Work / Time
+</div>
+
+<p>
+Energy is the capacity to do work.
+Power tells us how quickly work is done.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- 6 -->
+<div class="card chapter" data-search="sound waves frequency wavelength amplitude">
+
+<h3>06. Sound & Waves</h3>
+
+<span class="tag">Waves</span>
+<span class="tag">Sound</span>
+
+<div class="chapter-content">
+
+<p>
+Sound is produced by vibrating objects and normally requires
+a material medium for propagation.
+</p>
+
+<p>
+Frequency determines pitch, while amplitude is related to loudness.
+</p>
+
+<div class="formula">
+v = fλ
+</div>
+
+<div class="formula">
+f = 1/T
+</div>
+
+</div>
+
+</div>
+
+
+<!-- 7 -->
+<div class="card chapter" data-search="light reflection refraction mirror lens optics">
+
+<h3>07. Light</h3>
+
+<span class="tag">Optics</span>
+<span class="tag">Ray Diagrams</span>
+
+<div class="chapter-content">
+
+<p>
+Reflection is the bouncing back of light from a surface.
+</p>
+
+<p>
+The angle of incidence is equal to the angle of reflection.
+</p>
+
+<div class="formula">
+Angle of incidence = Angle of reflection
+</div>
+
+<p>
+Refraction is the change in direction of light when it travels
+between different media.
+</p>
+
+<div class="formula">
+1/f = 1/v + 1/u
+</div>
+
+</div>
+
+</div>
+
+
+<!-- 8 -->
+<div class="card chapter" data-search="electricity current voltage resistance ohm circuit">
+
+<h3>08. Electricity</h3>
+
+<span class="tag">Circuits</span>
+<span class="tag">Ohm's Law</span>
+
+<div class="chapter-content">
+
+<p>
+Electric current is the rate of flow of electric charge.
+</p>
+
+<div class="formula">
+I = Q/t
+</div>
+
+<div class="formula">
+V = IR
+</div>
+
+<div class="formula">
+P = VI
+</div>
+
+<div class="formula">
+Q = It
+</div>
+
+<p>
+Ohm's law relates potential difference, current and resistance.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- 9 -->
+<div class="card chapter" data-search="magnetism magnetic field electromagnet">
+
+<h3>09. Magnetism</h3>
+
+<span class="tag">Magnetic Field</span>
+<span class="tag">Electromagnet</span>
+
+<div class="chapter-content">
+
+<p>
+A magnetic field is the region around a magnet or current-carrying
+conductor where magnetic effects can be observed.
+</p>
+
+<p>
+Electric current can produce a magnetic field.
+</p>
+
+<div class="note">
+
+<strong>Remember:</strong>
+
+The magnetic field around a straight current-carrying conductor
+forms circular field lines around the conductor.
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- 10 -->
+<div class="card chapter" data-search="heat temperature conduction convection radiation">
+
+<h3>10. Heat & Temperature</h3>
+
+<span class="tag">Thermal Physics</span>
+
+<div class="chapter-content">
+
+<p>
+Heat is energy transferred because of a temperature difference.
+</p>
+
+<p>
+There are three major modes of heat transfer:
+</p>
+
+<div class="note">
+<strong>Conduction:</strong> Transfer through direct contact.
+</div>
+
+<div class="note">
+<strong>Convection:</strong> Transfer through movement of fluids.
+</div>
+
+<div class="note">
+<strong>Radiation:</strong> Transfer through electromagnetic waves.
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- FORMULAS -->
+<section id="formulas">
+
+<h2 class="section-title">
+📐 Important Formula Sheet
+</h2>
+
+<p class="subtitle">
+Quick revision before your exam.
+</p>
+
+
+<div class="grid">
+
+<div class="card">
+
+<h3>Motion</h3>
+
+<div class="formula">
+Speed = d/t
+</div>
+
+<div class="formula">
+v = u + at
+</div>
+
+<div class="formula">
+s = ut + ½at²
+</div>
+
+<div class="formula">
+v² = u² + 2as
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h3>Force</h3>
+
+<div class="formula">
+F = ma
+</div>
+
+<div class="formula">
+p = mv
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h3>Energy</h3>
+
+<div class="formula">
+W = Fd
+</div>
+
+<div class="formula">
+KE = ½mv²
+</div>
+
+<div class="formula">
+PE = mgh
+</div>
+
+<div class="formula">
+P = W/t
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h3>Electricity</h3>
+
+<div class="formula">
+V = IR
+</div>
+
+<div class="formula">
+I = Q/t
+</div>
+
+<div class="formula">
+P = VI
+</div>
+
+<div class="formula">
+Q = It
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h3>Waves</h3>
+
+<div class="formula">
+v = fλ
+</div>
+
+<div class="formula">
+f = 1/T
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h3>Gravitation</h3>
+
+<div class="formula">
+W = mg
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- REVISION -->
+<section>
+
+<h2 class="section-title">
+🧠 Quick Revision
+</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<h3>Scalar Quantity</h3>
+
+<p>
+A physical quantity having magnitude only.
+</p>
+
+<p>
+Examples: distance, speed, mass and time.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>Vector Quantity</h3>
+
+<p>
+A physical quantity having both magnitude and direction.
+</p>
+
+<p>
+Examples: displacement, velocity and force.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>SI Unit of Force</h3>
+
+<p>
+The SI unit of force is <b>Newton (N)</b>.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>SI Unit of Energy</h3>
+
+<p>
+The SI unit of energy is <b>Joule (J)</b>.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- QUIZ -->
+<section id="quiz">
+
+<h2 class="section-title">
+📝 Physics Quiz
+</h2>
+
+<p class="subtitle">
+Test your knowledge.
+</p>
+
+<div class="progress">
+<div class="progress-bar" id="progressBar"></div>
+</div>
+
+
+<form id="quizForm">
+
+
+<div class="question">
+
+<b>1. What is the SI unit of force?</b>
+
+<label>
+<input type="radio" name="q1" value="a">
+Joule
+</label>
+
+<label>
+<input type="radio" name="q1" value="b">
+Newton
+</label>
+
+<label>
+<input type="radio" name="q1" value="c">
+Watt
+</label>
+
+</div>
+
+
+<div class="question">
+
+<b>2. Which quantity has magnitude and direction?</b>
+
+<label>
+<input type="radio" name="q2" value="a">
+Speed
+</label>
+
+<label>
+<input type="radio" name="q2" value="b">
+Distance
+</label>
+
+<label>
+<input type="radio" name="q2" value="c">
+Velocity
+</label>
+
+</div>
+
+
+<div class="question">
+
+<b>3. Which is Ohm's Law?</b>
+
+<label>
+<input type="radio" name="q3" value="a">
+V = IR
+</label>
+
+<label>
+<input type="radio" name="q3" value="b">
+F = ma
+</label>
+
+<label>
+<input type="radio" name="q3" value="c">
+P = W/t
+</label>
+
+</div>
+
+
+<div class="question">
+
+<b>4. Energy possessed by a moving object is:</b>
+
+<label>
+<input type="radio" name="q4" value="a">
+Potential Energy
+</label>
+
+<label>
+<input type="radio" name="q4" value="b">
+Kinetic Energy
+</label>
+
+<label>
+<input type="radio" name="q4" value="c">
+Chemical Energy
+</label>
+
+</div>
+
+
+<div class="question">
+
+<b>5. SI unit of power is:</b>
+
+<label>
+<input type="radio" name="q5" value="a">
+Newton
+</label>
+
+<label>
+<input type="radio" name="q5" value="b">
+Joule
+</label>
+
+<label>
+<input type="radio" name="q5" value="c">
+Watt
+</label>
+
+</div>
+
+
+<button
+type="button"
+class="btn"
+onclick="checkQuiz()">
+
+Check Score
+
+</button>
+
+
+<div id="result" class="result"></div>
+
+</form>
+
+</section>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer>
+
+⚛️ <b>ENTROPY</b> — Physics Study Section
 
 <br><br>
 
-<a href="index.html" style="display:inline-block;padding:15px 35px;background:#00d4ff;color:#000;text-decoration:none;border-radius:30px;font-weight:bold;">
-⬅ Back to Home
+<a href="index.html">
+← Back to Home
 </a>
 
+</footer>
+
+
+<button
+class="top"
+onclick="window.scrollTo({top:0,behavior:'smooth'})">
+
+↑
+
+</button>
+
+
+<script>
+
+/* CHAPTER OPEN/CLOSE */
+
+document.querySelectorAll(".chapter").forEach(function(chapter){
+
+chapter.addEventListener("click",function(){
+
+this.classList.toggle("active");
+
+});
+
+});
+
+
+/* SEARCH */
+
+document.getElementById("search").addEventListener("input",function(){
+
+let searchText=this.value.toLowerCase();
+
+document.querySelectorAll(".chapter").forEach(function(chapter){
+
+let text=chapter.innerText.toLowerCase();
+
+if(text.includes(searchText)){
+
+chapter.style.display="block";
+
+}else{
+
+chapter.style.display="none";
+
+}
+
+});
+
+});
+
+
+/* QUIZ */
+
+function checkQuiz(){
+
+let answers={
+q1:"b",
+q2:"c",
+q3:"a",
+q4:"b",
+q5:"c"
+};
+
+let score=0;
+
+for(let question in answers){
+
+let selected=document.querySelector(
+'input[name="'+question+'"]:checked'
+);
+
+if(selected && selected.value===answers[question]){
+
+score++;
+
+}
+
+}
+
+
+let percentage=(score/5)*100;
+
+document.getElementById("progressBar").style.width=
+percentage+"%";
+
+
+let message="";
+
+if(score===5){
+
+message="🏆 Excellent! Perfect Score — 5/5";
+
+}else if(score>=3){
+
+message="👏 Good Job! Your Score: "+score+"/5";
+
+}else{
+
+message="📚 Keep Practising! Your Score: "+score+"/5";
+
+}
+
+
+document.getElementById("result").innerHTML=message;
+
+}
+
+</script>
+
 </body>
-</html>
+  </html>
